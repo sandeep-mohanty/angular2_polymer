@@ -1,0 +1,36 @@
+{
+  "name": "angular2_polymer",
+  "version": "1.0.0",
+  "description": "A sample project to analyze the compatibility and capabilities of Google's material design UI framework named Polymer with the Angular 2 MVVM UI frame work",
+  "main": "index.html",
+  "scripts": {
+    "start:server": "node server.js",
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandeep-mohanty/angular2_polymer.git"
+  },
+  "author": "Sandeep Mohanty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sandeep-mohanty/angular2_polymer/issues"
+  },
+  "homepage": "https://github.com/sandeep-mohanty/angular2_polymer#readme",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.17",
+    "es6-shim": "^0.35.1",
+    "npm-polymer-elements": "0.0.1",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-beta.6",
+    "systemjs": "^0.19.27",
+    "zone.js": "^0.6.12"
+  },
+  "devDependencies": {
+    "clear": "0.0.1",
+    "del": "^2.2.0",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "ntypescript": "^1.201605132207.1"
+  }
+}

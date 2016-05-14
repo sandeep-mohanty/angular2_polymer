@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Polymer Demo</title>
+
+    <!--<link rel="stylesheet" href="./resources/css/theme.css"/>
+    <link rel="stylesheet" href="./resources/css/custom.css"/>-->
+    
+    <!-- Polymer dependencies-->
+    <link rel="import" href="./node_modules/npm-polymer-elements/paper-button/paper-button.html"/>
+    <link rel="import" href="./node_modules/npm-polymer-elements/iron-icons/iron-icons.html"/>
+    <link rel="import" href="./node_modules/npm-polymer-elements/paper-icon-button/paper-icon-button.html"/>
+    
+  </head>
+
+  <body>
+    <!-- LMC Application gets generated inside "lmc" tag at runtime -->
+    <app></app>
+
+    <!-- Angular2 shim for IE -->
+    <script src="./resources/js/shims_for_IE.js"></script>
+    
+    <!-- Pollyfill library for webcomponents.This is required for browsers that do not natively support it. -->
+    <script src="./resources/js/webcomponents-lite.min.js"></script>
+
+    
+
+
+    <!-- Angular2 and its dependencies-->
+    <script src="./node_modules/es6-shim/es6-shim.js"></script>
+    <script src="./node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="./node_modules/systemjs/dist/system.src.js"></script>
+    <script src="./node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="./node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="./node_modules/angular2/bundles/http.dev.js"></script>
+
+    <!-- Script that triggers bootstrapping of LMC app -->
+    <script src="./dist/config/initializer.js"></script>
+  </body>
+</html>
