@@ -1,4 +1,5 @@
 import {Component} from "angular2/core";
+import {CustomComponentAngular2} from "./components/custom_component";
 
 
 @Component({
@@ -20,8 +21,10 @@ import {Component} from "angular2/core";
         <paper-icon-button icon="https" [style.color] = "color.toLowerCase()" ></paper-icon-button>
     </div><br/>
     <div align="center"><strong>Set color:   </strong><input type="text" [(ngModel)] = "color"/></div><br/>
-    <div align="center"><strong>Set Button Text:   </strong><input type="text" [(ngModel)] = "buttonText"/></div>
-	`
+    <div align="center"><strong>Set Button Text:   </strong><input type="text" [(ngModel)] = "buttonText"/></div> <br />
+    <custom-component-angular2></custom-component-angular2>
+	`,
+    directives: [CustomComponentAngular2]
 
 })
 

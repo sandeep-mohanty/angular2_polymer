@@ -1,0 +1,20 @@
+<dom-module id="custom-component">
+    <template>
+        <div align="center">
+            <h4>{{customtext}}</h4>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: "custom-component",
+        properties: {
+            customtext: {
+                type: String,
+                value: "",
+                notify: true
+            }
+        }
+    });
+</script>
