@@ -10,7 +10,7 @@ import {CustomComponentAngular2} from "./components/custom_component";
             <h1>Material Design with Polymer & Angular 2</h1>
         </div> <br />
     </paper-material>
-    <paper-material elevation="4" style = "height:550px;background-color:#E9EEF0;">
+    <paper-material elevation="5" style = "height:550px;background-color:#E9EEF0;">
         <div align="center"><h2>Paper Button</h2></div>
         <div align="center">
             <paper-button raised  style="color: white;" [style.background-color] = "color.toLowerCase()" (click) = "applyDefault()"
@@ -37,7 +37,7 @@ import {CustomComponentAngular2} from "./components/custom_component";
             <paper-checkbox #https>Secured Connection</paper-checkbox>
         </div><br/>
         <div align = "center">
-            <paper-input label="Enter Name"  style="width: 50%;"></paper-input>
+            <paper-input label="Enter Your Name"  style="width: 50%;" required></paper-input>
         </div> <br/>
         <div align="center"><strong>Set Button Color:   </strong><input type="text" [(ngModel)] = "color"/></div><br/>
         <div align="center"><strong>Set Button Text:   </strong><input type="text" [(ngModel)] = "buttonText"/></div> <br/>
