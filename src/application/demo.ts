@@ -24,19 +24,19 @@ import {CustomComponentAngular2} from "./components/custom_component";
             <span *ngIf = "buttonMouseOver"><strong>Click to restore default color (green)</strong></span>
         </div>
         <div align="center"><h3>Paper Icon Buttons</h3></div>
-        <div align="center"> 
-            <paper-icon-button icon="favorite" [style.color] = "favorite.checked ? color.toLowerCase() : 'green'" ></paper-icon-button>
-            <paper-checkbox #favorite>Favorite</paper-checkbox>
-            <paper-icon-button icon="feedback" [style.color] = "feedback.checked ? color.toLowerCase() : 'green'" ></paper-icon-button>
-            <paper-checkbox #feedback>Feedback</paper-checkbox>
-            <paper-icon-button icon="folder-shared" [style.color] = "shared.checked ? color.toLowerCase() : 'green'" ></paper-icon-button>
-            <paper-checkbox #shared>Shared Folder</paper-checkbox>
-            <paper-icon-button icon="flag" [style.color] = "flag.checked ? color.toLowerCase() : 'green'"  ></paper-icon-button>
-            <paper-checkbox #flag>Flag</paper-checkbox>
-            <paper-icon-button icon="help" [style.color] = "help.checked ? color.toLowerCase() : 'green'" ></paper-icon-button>
-            <paper-checkbox #help>Help</paper-checkbox>
-            <paper-icon-button icon="https" [style.color] = "https.checked ? color.toLowerCase() : 'green'" ></paper-icon-button>
-            <paper-checkbox #https>Secured Connection</paper-checkbox>
+        <div align="center" id = "paper-buttons" (click) = "fakeCall()">
+            <paper-icon-button icon="favorite" [style.color] = "favorite.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-checkbox #favorite (click) = "triggerAFakeEvent()">Favorite</paper-checkbox>
+            <paper-icon-button icon="feedback" [style.color] = "feedback.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-checkbox #feedback (click) = "triggerAFakeEvent()">Feedback</paper-checkbox>
+            <paper-icon-button icon="folder-shared" [style.color] = "shared.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-checkbox #shared (click) = "triggerAFakeEvent()">Shared Folder</paper-checkbox>
+            <paper-icon-button icon="flag" [style.color] = "flag.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-checkbox #flag (click) = "triggerAFakeEvent()">Flag</paper-checkbox>
+            <paper-icon-button icon="help" [style.color] = "help.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-checkbox #help (click) = "triggerAFakeEvent()">Help</paper-checkbox>
+            <paper-icon-button icon="https" [style.color] = "https.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-checkbox #https (click) = "triggerAFakeEvent()">Secured Connection</paper-checkbox>
         </div><br/>
         <div align = "center">
             <paper-input label="Enter Your Name" [value] = "username" style="width: 50%;" required (keyup) = "onKeyup($event)"></paper-input>
@@ -51,13 +51,14 @@ import {CustomComponentAngular2} from "./components/custom_component";
 })
 
 export class PolymerComponentContainer implements OnInit{
-    
+
     private color:string;
     private lexColor:string;
     private buttonText:string;
     private buttonMouseOver:boolean;
     private username:string;
-    
+	private paperButtons:any;
+
 	constructor() {
         this.color = "green";
         this.lexColor = "";
@@ -68,19 +69,19 @@ export class PolymerComponentContainer implements OnInit{
         this.lexColor = "green";
         this.buttonMouseOver = false;
     }
-    
+
     showButtonHelpText(){
         this.buttonMouseOver = true;
     }
-    
+
     hideButtonHelpText(){
         this.buttonMouseOver = false;
     }
-    
+
     onKeyup(event) {
         this.username = event.target.__data__.bindValue;
     }
-    
+
     onNgInit(){
         this.color = "green";
         this.lexColor = "green";
@@ -88,4 +89,17 @@ export class PolymerComponentContainer implements OnInit{
         this.buttonMouseOver = false;
         this.username = "Visitor";
     }
+
+	triggerAFakeEvent(){
+
+		if (this.paperButtons) {
+			this.paperButtons.click();
+		} else {
+			this.paperButtons = document.getElementById("paper-buttons");
+			this.paperButtons.click();
+		}
+	}
+
+	fakeCall() {
+	}
 }
