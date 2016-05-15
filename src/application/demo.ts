@@ -6,7 +6,7 @@ import {CustomComponentAngular2} from "./components/custom_component";
 	selector: "app",
 	template: `
     <paper-material elevation="5" style = "background-color:#E9EEF0;">
-        <div style = "height:40px;color:white;background-color:green;" align = "center">
+        <div style = "height:40px;color:white;" [style.background-color] = "color" align = "center">
             <h1>Material Design with Polymer & Angular 2</h1>
         </div> <br />
     </paper-material>
