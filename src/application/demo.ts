@@ -91,7 +91,6 @@ export class PolymerComponentContainer implements OnInit{
     }
 	
 	applyDefault() {
-		this.username = "Visitor";
 		this.color = "green";
 	}
 
