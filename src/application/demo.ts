@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component,OnInit} from "angular2/core";
 import {CustomComponentAngular2} from "./components/custom_component";
 
 
@@ -11,7 +11,9 @@ import {CustomComponentAngular2} from "./components/custom_component";
         </div> <br />
     </paper-material>
     <paper-material elevation="5" style = "height:550px;background-color:#E9EEF0;">
-        <div align="center"><h2>Paper Button</h2></div>
+        
+        <div align="center" *ngIf = "username !== ''" [style.color] = "color"><h2>Welcome {{username}} !</h2></div>
+        <div align="center"><h3>Paper Button</h3></div>
         <div align="center">
             <paper-button raised  style="color: white;" [style.background-color] = "color.toLowerCase()" (click) = "applyDefault()"
             (mouseover) = "showButtonHelpText()"
@@ -19,9 +21,9 @@ import {CustomComponentAngular2} from "./components/custom_component";
                 {{buttonText}}</paper-button>
         </div><br/>
         <div align="center">
-            <span *ngIf = "buttonMouseOver"><strong>Click to restore defaults</strong></span>
+            <span *ngIf = "buttonMouseOver"><strong>Click to restore default color (green)</strong></span>
         </div>
-        <div align="center"><h2>Paper Icon Buttons</h2></div>
+        <div align="center"><h3>Paper Icon Buttons</h3></div>
         <div align="center"> 
             <paper-icon-button icon="favorite" [style.color] = "favorite.checked ? color.toLowerCase() : 'green'" ></paper-icon-button>
             <paper-checkbox #favorite>Favorite</paper-checkbox>
@@ -37,7 +39,7 @@ import {CustomComponentAngular2} from "./components/custom_component";
             <paper-checkbox #https>Secured Connection</paper-checkbox>
         </div><br/>
         <div align = "center">
-            <paper-input label="Enter Your Name"  style="width: 50%;" required></paper-input>
+            <paper-input label="Enter Your Name" [value] = "username" style="width: 50%;" required (keyup) = "onKeyup($event.srcElement.value)"></paper-input>
         </div> <br/>
         <div align="center"><strong>Set Button Color:   </strong><input type="text" [(ngModel)] = "color"/></div><br/>
         <div align="center"><strong>Set Button Text:   </strong><input type="text" [(ngModel)] = "buttonText"/></div> <br/>
@@ -48,24 +50,22 @@ import {CustomComponentAngular2} from "./components/custom_component";
 
 })
 
-export class PolymerComponentContainer {
+export class PolymerComponentContainer implements OnInit{
     
     private color:string;
     private lexColor:string;
     private buttonText:string;
     private buttonMouseOver:boolean;
+    private username:string;
     
 	constructor() {
         this.color = "green";
-        this.lexColor = "green";
+        this.lexColor = "";
         this.buttonText = "Polymer Button"
         this.buttonMouseOver = false;
-	}
-    
-    applyDefault(){
+        this.username = "Visitor";
         this.color = "green";
         this.lexColor = "green";
-        this.buttonText = "Polymer Button"
         this.buttonMouseOver = false;
     }
     
@@ -75,5 +75,17 @@ export class PolymerComponentContainer {
     
     hideButtonHelpText(){
         this.buttonMouseOver = false;
+    }
+    
+    onKeyup(name) {
+        this.username = name;
+    }
+    
+    onNgInit(){
+        this.color = "green";
+        this.lexColor = "green";
+        this.buttonText = "Polymer Button"
+        this.buttonMouseOver = false;
+        this.username = "Visitor";
     }
 }
