@@ -25,17 +25,17 @@ import {CustomComponentAngular2} from "./components/custom_component";
         </div>
         <div align="center"><h3>Paper Icon Buttons</h3></div>
         <div align="center" id = "paper-buttons" (click) = "fakeCall()">
-            <paper-icon-button icon="favorite" [style.color] = "favorite.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-icon-button icon="favorite" [style.color] = "favorite.checked ? color.toLowerCase() : lexColor"></paper-icon-button>
             <paper-checkbox #favorite (click) = "triggerAFakeEvent()">Favorite</paper-checkbox>
-            <paper-icon-button icon="feedback" [style.color] = "feedback.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-icon-button icon="feedback" [style.color] = "feedback.checked ? color.toLowerCase() : lexColor"></paper-icon-button>
             <paper-checkbox #feedback (click) = "triggerAFakeEvent()">Feedback</paper-checkbox>
-            <paper-icon-button icon="folder-shared" [style.color] = "shared.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-icon-button icon="folder-shared" [style.color] = "shared.checked ? color.toLowerCase() : lexColor"></paper-icon-button>
             <paper-checkbox #shared (click) = "triggerAFakeEvent()">Shared Folder</paper-checkbox>
-            <paper-icon-button icon="flag" [style.color] = "flag.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-icon-button icon="flag" [style.color] = "flag.checked ? color.toLowerCase() : lexColor"></paper-icon-button>
             <paper-checkbox #flag (click) = "triggerAFakeEvent()">Flag</paper-checkbox>
-            <paper-icon-button icon="help" [style.color] = "help.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-icon-button icon="help" [style.color] = "help.checked ? color.toLowerCase() : lexColor"></paper-icon-button>
             <paper-checkbox #help (click) = "triggerAFakeEvent()">Help</paper-checkbox>
-            <paper-icon-button icon="https" [style.color] = "https.checked ? color.toLowerCase() : 'green'"></paper-icon-button>
+            <paper-icon-button icon="https" [style.color] = "https.checked ? color.toLowerCase() : lexColor"></paper-icon-button>
             <paper-checkbox #https (click) = "triggerAFakeEvent()">Secured Connection</paper-checkbox>
         </div><br/>
         <div align = "center">
@@ -89,6 +89,11 @@ export class PolymerComponentContainer implements OnInit{
         this.buttonMouseOver = false;
         this.username = "Visitor";
     }
+	
+	applyDefault() {
+		this.username = "Visitor";
+		this.color = "green";
+	}
 
 	triggerAFakeEvent(){
 
