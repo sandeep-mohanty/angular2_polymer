@@ -39,7 +39,7 @@ import {CustomComponentAngular2} from "./components/custom_component";
             <paper-checkbox #https>Secured Connection</paper-checkbox>
         </div><br/>
         <div align = "center">
-            <paper-input label="Enter Your Name" [value] = "username" style="width: 50%;" required (keyup) = "onKeyup($event.srcElement.value)"></paper-input>
+            <paper-input label="Enter Your Name" [value] = "username" style="width: 50%;" required (keyup) = "onKeyup($event)"></paper-input>
         </div> <br/>
         <div align="center"><strong>Set Button Color:   </strong><input type="text" [(ngModel)] = "color"/></div><br/>
         <div align="center"><strong>Set Button Text:   </strong><input type="text" [(ngModel)] = "buttonText"/></div> <br/>
@@ -77,8 +77,8 @@ export class PolymerComponentContainer implements OnInit{
         this.buttonMouseOver = false;
     }
     
-    onKeyup(name) {
-        this.username = name;
+    onKeyup(event) {
+        this.username = event.target.__data__.bindValue;
     }
     
     onNgInit(){
