@@ -82,7 +82,7 @@ export class PolymerComponentContainer implements OnInit{
         this.username = event.target.__data__.bindValue;
     }
 
-    onNgInit(){
+    ngOnInit(){
         this.color = "green";
         this.lexColor = "green";
         this.buttonText = "Polymer Button"
